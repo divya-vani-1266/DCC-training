@@ -3,13 +3,13 @@ apiVersion: v1
 metadata:
   name: prod-ns
   labels:
-    name: roboshop
+    name: n7roboshop
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   namespace: prod-ns
-  name: test-admin-role
+  name: n7-test-admin-role
 rules:
 - apiGroups: ["*"] # "" indicates the core API group
   resources: ["*"]
@@ -18,13 +18,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: test-admin-rolebinding
+  name: n7-test-admin-rolebinding
   namespace: prod-ns
 subjects:
 - kind: User
-  name: deloitteuser
+  name: deloitteuser7
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
-  name: test-admin-role
+  name: n7-test-admin-role
   apiGroup: rbac.authorization.k8s.io
